@@ -1,7 +1,6 @@
-var express = require('express');
-var api = require('./src/js/api');
-//var $ = require('jQuery');
-var axios = require('axios');
+const express = require('express');
+const axios = require('axios');
+const api = require('./src/js/api');
 
 var app = express();
 
@@ -27,7 +26,7 @@ app.get('/', (req, res) => {
 
 app.get('/api', (req, res) => {
   //console.log(req);
-  api.get_handler(req, res);
+  api(req, res);
 });
 
 app.listen(3000, () => {
