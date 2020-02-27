@@ -1,6 +1,6 @@
 const express = require('express');
 const axios = require('axios');
-const api = require('./src/js/api');
+const api = require('./src/api');
 
 var app = express();
 
