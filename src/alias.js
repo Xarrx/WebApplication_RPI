@@ -14,7 +14,7 @@ module.exports = {
 		pin: 22,
 		allowed_operations: ['write'],
 		validate: (value) => {
-			return false;
+			return true;
 		}
 	},
 	blue_pin: {

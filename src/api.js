@@ -18,7 +18,7 @@ const alias = require('./alias.js');
 
 module.exports = function(req, res){
   /*
-    handle different requests that wil come to the api route (GET).
+    handle different requests that wil come to the api route.
   */
 
   /*
