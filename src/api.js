@@ -1,6 +1,6 @@
 /*
   Module Description:
-    Route which handles getting/setting the color of the LED strip.
+    [OLD] Route which handles getting/setting the color of the LED strip.
 
   Modules to use:
 
