@@ -27,7 +27,7 @@ const mockStatus = jest.fn((x) => {return {json: mockJson};});
 const res = {status: mockStatus};
 
 // tests
-description('api Tests', () => {
+describe('api Tests', () => {
   test('Test failure on non-list (not iterable) body.', () => {
     // api function input
     const req = {
