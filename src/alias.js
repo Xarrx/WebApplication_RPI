@@ -9,18 +9,12 @@ module.exports = {
 		validate: (value) => {
 			return false;
 		}
-		format: (value) => {
-			return 0;
-		}
 	},
 	green_pin: {
 		pin: 22,
 		allowed_operations: ['write'],
 		validate: (value) => {
 			return false;
-		},
-		format: (value) => {
-			return 0;
 		}
 	},
 	blue_pin: {
@@ -28,9 +22,6 @@ module.exports = {
 		allowed_operations: ['write'],
 		validate: (value) => {
 			return false;
-		},
-		format: (value) => {
-			return 0;
 		}
 	}
 };
