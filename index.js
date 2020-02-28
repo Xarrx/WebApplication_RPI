@@ -22,10 +22,7 @@ app.get('/', (req, res) => {
 
 });
 
-app.get('/api', (req, res) => {
-  //console.log(req);
-  api(req, res);
-});
+app.get('/api', api);
 
 app.listen(3000, () => {
   console.log('server started');

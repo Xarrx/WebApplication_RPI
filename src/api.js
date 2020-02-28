@@ -79,7 +79,7 @@ module.exports = function(req, res){
             }else{
               // set status/message and break out of loop
               status = 500;
-              response = {message: 'Failed to validate alias\' value.'};
+              resp = {message: 'Failed to validate alias\' value.'};
               break;
             }
           }else{
@@ -92,16 +92,20 @@ module.exports = function(req, res){
         }else{
           // set status/message and break out of loop
           status = 500;
-          response = {message: 'Failed to validate alias\' operation.'};
+          resp = {message: 'Failed to validate alias\' operation.'};
           break;
         }
       }else{
         // set status/message and break out of loop
         status = 500;
-        response = {message: 'Failed to validate alias.'};
+        resp = {message: 'Failed to validate alias.'};
         break;
       }
     }
+  }else{
+    // set status/message and break out of loop
+    status = 500;
+    resp = {message: 'Failed to validate request body.'};
   }
   
 
@@ -113,8 +117,10 @@ module.exports = function(req, res){
     for(let a in queue){
       if(a.operation === 'write'){
         // write value to pin
+        console.log('Value written to pin!');
       }else if(a.operation === 'read'){
         // read value from pin and modify resp
+        console.log('Value read from pin!');
       }
     }
   }
