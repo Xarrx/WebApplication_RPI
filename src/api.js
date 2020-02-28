@@ -55,51 +55,55 @@ module.exports = function(req, res){
   let status = 200;
   let queue = [];
   
-  // Iterate over all objects in the body object
-  for(let a of req.body){
-    // check that a has an alias property and that it is in the alias module
-    if(a.hasOwnproperty('alias') && alias.hasOwnproperty(a.alias)){
-      let als = alias[a.alias];
-      // validate the operation and ensure that it is allowed
-      if(a.hasOwnProperty('operation') && als.hasOwnproperty('allowed_operations')
-      && als.allowed_operations.includes(a.operation)){
-        // check if operation is write
-        if(a.opertaion === 'write'){
-          // operation is write, validate the value
-          if(a.hasOwnProperty('value') && als.hasOwnproperty('validate')
-          && als.validate(a.value)){
-            // requested operation has validated, add it to the queue
+  // make sure that req.body is iterable
+  if(Symbol.iterator in req.body){
+    // Iterate over all objects in the body object
+    for(let a of req.body){
+      // check that a has an alias property and that it is in the alias module
+      if(a.hasOwnProperty('alias') && alias.hasOwnProperty(a.alias)){
+        let als = alias[a.alias];
+        // validate the operation and ensure that it is allowed
+        if(a.hasOwnProperty('operation') && als.hasOwnProperty('allowed_operations')
+        && als.allowed_operations.includes(a.operation)){
+          // check if operation is write
+          if(a.opertaion === 'write'){
+            // operation is write, validate the value
+            if(a.hasOwnProperty('value') && als.hasOwnProperty('validate')
+            && als.validate(a.value)){
+              // requested operation has validated, add it to the queue
+              queue.push({
+                pin: als.pin,
+                operation: a.operation,
+                value: a.value
+              });
+            }else{
+              // set status/message and break out of loop
+              status = 500;
+              response = {message: 'Failed to validate alias\' value.'};
+              break;
+            }
+          }else{
+            // operation is something other than write so no value to validate
             queue.push({
               pin: als.pin,
               operation: a.operation,
-              value: a.value
             });
-          }else{
-            // set status/message and break out of loop
-            status = 500;
-            response = {message: 'Failed to validate alias\' value.'};
-            break;
           }
         }else{
-          // operation is something other than write so no value to validate
-          queue.push({
-            pin: als.pin,
-            operation: a.operation,
-          });
+          // set status/message and break out of loop
+          status = 500;
+          response = {message: 'Failed to validate alias\' operation.'};
+          break;
         }
       }else{
         // set status/message and break out of loop
         status = 500;
-        response = {message: 'Failed to validate alias\' operation.'};
+        response = {message: 'Failed to validate alias.'};
         break;
       }
-    }else{
-      // set status/message and break out of loop
-      status = 500;
-      response = {message: 'Failed to validate alias.'};
-      break;
     }
   }
+  
 
   // if nothing failed, apply the operations
   if(status === 200){

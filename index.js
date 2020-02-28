@@ -12,9 +12,7 @@ app.get('/', (req, res) => {
   axios({
     method: 'get',
     url: 'https://webapplicationrpi--dkendz.repl.co/api',
-    data: {
-      action: 'getColor'
-    }
+    data: {}
   }).then((result) => {
     console.log(result.data);
     res.status(200).json(result.data);
