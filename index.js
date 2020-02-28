@@ -12,12 +12,18 @@ app.get('/', (req, res) => {
   axios({
     method: 'get',
     url: 'https://webapplicationrpi--dkendz.repl.co/api',
-    data: {}
+    data: [
+      {
+        alias: 'red_pin',
+        operation: 'write',
+        value: 0
+      }
+    ]
   }).then((result) => {
-    console.log(result.data);
+    //console.log(result.data);
     res.status(200).json(result.data);
   }).catch((e) => {
-    console.log(e.response.data.message);
+    console.log('Error: '+e.response.data.message);
   });
 
 });

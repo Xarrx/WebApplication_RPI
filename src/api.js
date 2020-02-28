@@ -59,23 +59,30 @@ module.exports = function(req, res){
   if(Symbol.iterator in req.body){
     // Iterate over all objects in the body object
     for(let a of req.body){
+      //console.log('DEBUG: Entered loop...');
       // check that a has an alias property and that it is in the alias module
       if(a.hasOwnProperty('alias') && alias.hasOwnProperty(a.alias)){
+        //console.log('DEBUG: Alias check passed...');
         let als = alias[a.alias];
         // validate the operation and ensure that it is allowed
         if(a.hasOwnProperty('operation') && als.hasOwnProperty('allowed_operations')
         && als.allowed_operations.includes(a.operation)){
+          //console.log('DEBUG: Operation check passed...');
           // check if operation is write
-          if(a.opertaion === 'write'){
+          //console.log('DEBUG: Operation: '+a.operation);
+          if(a.operation === 'write'){
+            //console.log('DEBUG: Operation is write...');
             // operation is write, validate the value
             if(a.hasOwnProperty('value') && als.hasOwnProperty('validate')
             && als.validate(a.value)){
+              //console.log('DEBUG: Write check passed...');
               // requested operation has validated, add it to the queue
               queue.push({
                 pin: als.pin,
                 operation: a.operation,
                 value: a.value
               });
+              //console.log(queue);
             }else{
               // set status/message and break out of loop
               status = 500;
@@ -84,10 +91,12 @@ module.exports = function(req, res){
             }
           }else{
             // operation is something other than write so no value to validate
+            //console.log('DEBUG: Operation is not write...');
             queue.push({
               pin: als.pin,
               operation: a.operation,
             });
+            //console.log(queue);
           }
         }else{
           // set status/message and break out of loop
@@ -114,13 +123,18 @@ module.exports = function(req, res){
     /*
       do pin operations with pigpio
     */
-    for(let a in queue){
+    //console.log(queue);
+    while(queue.length){
+      let a = queue.pop();
+      //console.log(a);
       if(a.operation === 'write'){
         // write value to pin
-        console.log('Value written to pin!');
+        console.log('MESSAGE: [PH] Value written to pin!');
       }else if(a.operation === 'read'){
         // read value from pin and modify resp
-        console.log('Value read from pin!');
+        console.log('MESSAGE: [PH] Value read from pin!');
+      }else{
+        //console.log('DEBUG: Operation was not read or write...');
       }
     }
   }
