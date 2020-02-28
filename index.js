@@ -22,6 +22,11 @@ app.get('/', (req, res) => {
         alias: 'green_pin',
         operation: 'write',
         value: 255
+      },
+      {
+        alias: 'blue_pin',
+        operation: 'write',
+        value: 0
       }
     ]
   }).then((result) => {

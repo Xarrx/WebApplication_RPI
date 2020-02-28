@@ -21,7 +21,7 @@ module.exports = {
 		pin: 24,
 		allowed_operations: ['write'],
 		validate: (value) => {
-			return false;
+			return true;
 		}
 	}
 };
