@@ -124,7 +124,7 @@ module.exports = function(req, res){
         // read value from pin and modify resp
         console.log('MESSAGE: [PH] Value read from pin!');
       }else{
-		console.log('MESSAGE: [PH] This message should never print...');
+        console.log('MESSAGE: [PH] This message should never print...');
       }
     }
   }
