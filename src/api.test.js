@@ -70,7 +70,7 @@ describe('Test that api fails when expected.', () => {
       message: 'Aborted validation due to empty body.'
     }));
   });
-  test('Test failure when object in body list is missing alias property', () => {
+  test('Test failure when object in body list is missing alias property (only 1)', () => {
     // api function input
     const req = {
       body: [
@@ -91,4 +91,94 @@ describe('Test that api fails when expected.', () => {
       message: 'Failed to validate alias.'
     }));
   });
+  test('Test failure when object in body list is missing alias property (1 good before)', () => {
+    // api function input
+    const req = {
+      body: [
+        {
+          alias: 'red_pin',
+          operation: 'write',
+          value: 0
+        },
+        {
+          operation: 'write',
+          value: 0
+        }
+      ]
+    };
+    // run api with the costructed arguments
+    api(req, res);
+
+    // test output for expected behavior
+    expect(mockStatus.mock.calls.length).toBe(1);
+    expect(mockStatus.mock.calls[0][0]).toBe(500);
+    expect(mockJson.mock.calls.length).toBe(1);
+    expect(mockJson).toBeCalledWith(expect.objectContaining({
+      message: 'Failed to validate alias.'
+    }));
+  });
+  test('Test failure when object in body list is missing alias property (2 good before)', () => {
+    // api function input
+    const req = {
+      body: [
+        {
+          alias: 'green_pin',
+          operation: 'write',
+          value: 0
+        },
+        {
+          alias: 'red_pin',
+          operation: 'write',
+          value: 0
+        },
+        {
+          operation: 'write',
+          value: 0
+        }
+      ]
+    };
+    // run api with the costructed arguments
+    api(req, res);
+
+    // test output for expected behavior
+    expect(mockStatus.mock.calls.length).toBe(1);
+    expect(mockStatus.mock.calls[0][0]).toBe(500);
+    expect(mockJson.mock.calls.length).toBe(1);
+    expect(mockJson).toBeCalledWith(expect.objectContaining({
+      message: 'Failed to validate alias.'
+    }));
+  });
+
+  test('Test failure when object in body list is missing alias property (1 bad before)', () => {
+    // api function input
+    const req = {
+      body: [
+        {
+          operation: 'write',
+          value: 0
+        },
+        {
+          alias: 'green_pin',
+          operation: 'write',
+          value: 0
+        },
+        {
+          alias: 'red_pin',
+          operation: 'write',
+          value: 0
+        }
+      ]
+    };
+    // run api with the costructed arguments
+    api(req, res);
+
+    // test output for expected behavior
+    expect(mockStatus.mock.calls.length).toBe(1);
+    expect(mockStatus.mock.calls[0][0]).toBe(500);
+    expect(mockJson.mock.calls.length).toBe(1);
+    expect(mockJson).toBeCalledWith(expect.objectContaining({
+      message: 'Failed to validate alias.'
+    }));
+  });
+
 });
