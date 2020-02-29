@@ -148,7 +148,6 @@ describe('Test that api fails when expected.', () => {
       message: 'Failed to validate alias.'
     }));
   });
-
   test('Test failure when object in body list is missing alias property (1 bad before)', () => {
     // api function input
     const req = {
