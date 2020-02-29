@@ -21,7 +21,7 @@
 */
 'use strict';
 const api = require('./api');
-//jest.mock('./alias');
+jest.mock('./alias');
 // response object mock
 const mockJson = jest.fn((x) => {return;});
 const mockStatus = jest.fn((x) => {return {json: mockJson};});
