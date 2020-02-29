@@ -70,6 +70,7 @@ describe('Test that api fails when expected.', () => {
       message: 'Aborted validation due to empty body.'
     }));
   });
+  
   test('Test failure when object in body list is missing alias property (only 1)', () => {
     // api function input
     const req = {
@@ -179,8 +180,6 @@ describe('Test that api fails when expected.', () => {
       message: 'Failed to validate alias.'
     }));
   });
-
-
 
   test('Test failure when object in body has invalid alias(only 1)', () => {
     // api function input
@@ -405,6 +404,7 @@ describe('Test that api fails when expected.', () => {
       message: 'Failed to validate alias\' operation.'
     }));
   });
+
   test('Test failure when object in body list has invalid operation (only 1).', () => {
     // api function input
     const req = {
