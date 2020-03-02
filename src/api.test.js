@@ -644,7 +644,7 @@ describe('Test that api fails when expected (pass 1).', () => {
 
 
 */
-describe('Test that api fails on write operation when value is missing (pass 2).', () => {
+describe('Test that api fails on write operation when value is missing (pass 2.1).', () => {
   test('Test write failure when value is missing (only 1).', () => {
     // api function input
     const req = {
@@ -663,7 +663,7 @@ describe('Test that api fails on write operation when value is missing (pass 2).
     expect(mockStatus.mock.calls[0][0]).toBe(500);
     expect(mockJson.mock.calls.length).toBe(1);
     expect(mockJson).toBeCalledWith(expect.objectContaining({
-      message: 'Failed to validate alias\' operation.'
+      message: 'Failed to validate alias\' value.'
     }));
   });
 test('Test write failure when value is missing (1 good before).', () => {
@@ -689,7 +689,7 @@ test('Test write failure when value is missing (1 good before).', () => {
     expect(mockStatus.mock.calls[0][0]).toBe(500);
     expect(mockJson.mock.calls.length).toBe(1);
     expect(mockJson).toBeCalledWith(expect.objectContaining({
-      message: 'Failed to validate alias\' operation.'
+      message: 'Failed to validate alias\' value.'
     }));
   });
   test('Test write failure when value is missing (2 good before).', () => {
@@ -720,7 +720,7 @@ test('Test write failure when value is missing (1 good before).', () => {
     expect(mockStatus.mock.calls[0][0]).toBe(500);
     expect(mockJson.mock.calls.length).toBe(1);
     expect(mockJson).toBeCalledWith(expect.objectContaining({
-      message: 'Failed to validate alias\' operation.'
+      message: 'Failed to validate alias\' value.'
     }));
   });
   test('Test write failure when value is missing (1 bad before).', () => {
@@ -751,7 +751,7 @@ test('Test write failure when value is missing (1 good before).', () => {
     expect(mockStatus.mock.calls[0][0]).toBe(500);
     expect(mockJson.mock.calls.length).toBe(1);
     expect(mockJson).toBeCalledWith(expect.objectContaining({
-      message: 'Failed to validate alias\' operation.'
+      message: 'Failed to validate alias\' value.'
     }));
   });
 });
@@ -776,7 +776,7 @@ describe('Test that api fails on write operation when validate function is undef
     expect(mockStatus.mock.calls[0][0]).toBe(500);
     expect(mockJson.mock.calls.length).toBe(1);
     expect(mockJson).toBeCalledWith(expect.objectContaining({
-      message: 'Failed to validate alias\' operation.'
+      message: 'Failed to validate alias\' value.'
     }));
   });
   test('Test write failure when validate is missing from alias (1 good before).', () => {
@@ -803,7 +803,7 @@ describe('Test that api fails on write operation when validate function is undef
     expect(mockStatus.mock.calls[0][0]).toBe(500);
     expect(mockJson.mock.calls.length).toBe(1);
     expect(mockJson).toBeCalledWith(expect.objectContaining({
-      message: 'Failed to validate alias\' operation.'
+      message: 'Failed to validate alias\' value.'
     }));
   });
   test('Test write failure when validate is missing from alias (2 good before).', () => {
@@ -835,7 +835,7 @@ describe('Test that api fails on write operation when validate function is undef
     expect(mockStatus.mock.calls[0][0]).toBe(500);
     expect(mockJson.mock.calls.length).toBe(1);
     expect(mockJson).toBeCalledWith(expect.objectContaining({
-      message: 'Failed to validate alias\' operation.'
+      message: 'Failed to validate alias\' value.'
     }));
   });
   test('Test write failure when validate is missing from alias (1 bad before).', () => {
@@ -867,7 +867,7 @@ describe('Test that api fails on write operation when validate function is undef
     expect(mockStatus.mock.calls[0][0]).toBe(500);
     expect(mockJson.mock.calls.length).toBe(1);
     expect(mockJson).toBeCalledWith(expect.objectContaining({
-      message: 'Failed to validate alias\' operation.'
+      message: 'Failed to validate alias\' value.'
     }));
   });
 });
