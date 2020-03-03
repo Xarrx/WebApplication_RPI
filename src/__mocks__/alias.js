@@ -46,19 +46,9 @@ module.exports = {
     pin: 25,
     allowed_operations: ['write'],
   },
-  test_pin_validatefail_onlywrite: {
-    pin: 26,
+  test_pin_write_badvalidate: {
+    pin: 25,
     allowed_operations: ['write'],
-    validate: _validateAlwaysFail
-  },
-  test_pin_validatefail_onlyread: {
-    pin: 27,
-    allowed_operations: ['read'],
-    validate: _validateAlwaysFail
-  },
-  test_pin_validatefail_readwrite: {
-    pin: 28,
-    allowed_operations: ['read', 'write'],
-    validate: _validateAlwaysFail
-  },
+    validate: 'not a function'
+  }
 };
