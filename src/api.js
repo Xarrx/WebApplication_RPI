@@ -71,6 +71,7 @@ module.exports = function(req, res){
             if(a.operation === 'write'){
               // operation is write, validate the value
               if(a.hasOwnProperty('value') && als.hasOwnProperty('validate')
+              && typeof als.validate === 'function'
               && als.validate(a.value)){
                 // requested operation has validated, add it to the queue
                 queue.push({
