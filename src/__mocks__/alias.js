@@ -50,5 +50,10 @@ module.exports = {
     pin: 25,
     allowed_operations: ['write'],
     validate: 'not a function'
+  },
+  test_pin_write_validatefails: {
+    pin: 25,
+    allowed_operations: ['write'],
+    validate: _validateAlwaysFail
   }
 };

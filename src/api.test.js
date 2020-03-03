@@ -987,3 +987,119 @@ describe('Test that api fails on write operation when validate function is not a
     }));
   });
 });
+
+describe('Test that api fails on write operation when validate function returns false (pass 2.4).', () => {
+  test('Test write failure when validate fails (1 bad alias).', () => {
+    // api function input
+    const req = {
+      body: [
+        {
+          alias: 'test_pin_write_validatefails',
+          operation: 'write',
+          value: 100
+        }
+      ]
+    };
+    // run api with the costructed arguments
+    api(req, res);
+
+    // test output for expected behavior
+    expect(mockStatus.mock.calls.length).toBe(1);
+    expect(mockStatus.mock.calls[0][0]).toBe(500);
+    expect(mockJson.mock.calls.length).toBe(1);
+    expect(mockJson).toBeCalledWith(expect.objectContaining({
+      message: 'Failed to validate alias\' value.'
+    }));
+  });
+  test('Test write failure when validate fails (1 good before).', () => {
+    // api function input
+    const req = {
+      body: [
+        {
+          alias: 'green_pin',
+          operation: 'write',
+          value: 255
+        },
+        {
+          alias: 'test_pin_write_validatefails',
+          operation: 'write',
+          value: 100
+        }
+      ]
+    };
+    // run api with the costructed arguments
+    api(req, res);
+
+    // test output for expected behavior
+    expect(mockStatus.mock.calls.length).toBe(1);
+    expect(mockStatus.mock.calls[0][0]).toBe(500);
+    expect(mockJson.mock.calls.length).toBe(1);
+    expect(mockJson).toBeCalledWith(expect.objectContaining({
+      message: 'Failed to validate alias\' value.'
+    }));
+  });
+  test('Test write failure when validate fails (2 good before).', () => {
+    // api function input
+    const req = {
+      body: [
+        {
+          alias: 'green_pin',
+          operation: 'write',
+          value: 255
+        },
+        {
+          alias: 'blue_pin',
+          operation: 'write',
+          value: 255
+        },
+        {
+          alias: 'test_pin_write_validatefails',
+          operation: 'write',
+          value: 100
+        }
+      ]
+    };
+    // run api with the costructed arguments
+    api(req, res);
+
+    // test output for expected behavior
+    expect(mockStatus.mock.calls.length).toBe(1);
+    expect(mockStatus.mock.calls[0][0]).toBe(500);
+    expect(mockJson.mock.calls.length).toBe(1);
+    expect(mockJson).toBeCalledWith(expect.objectContaining({
+      message: 'Failed to validate alias\' value.'
+    }));
+  });
+  test('Test write failure when validate fails (1 bad before).', () => {
+    // api function input
+    const req = {
+      body: [
+        {
+          alias: 'test_pin_write_validatefails',
+          operation: 'write',
+          value: 100
+        },
+        {
+          alias: 'green_pin',
+          operation: 'write',
+          value: 255
+        },
+        {
+          alias: 'blue_pin',
+          operation: 'write',
+          value: 255
+        }
+      ]
+    };
+    // run api with the costructed arguments
+    api(req, res);
+
+    // test output for expected behavior
+    expect(mockStatus.mock.calls.length).toBe(1);
+    expect(mockStatus.mock.calls[0][0]).toBe(500);
+    expect(mockJson.mock.calls.length).toBe(1);
+    expect(mockJson).toBeCalledWith(expect.objectContaining({
+      message: 'Failed to validate alias\' value.'
+    }));
+  });
+});
