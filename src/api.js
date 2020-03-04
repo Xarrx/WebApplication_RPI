@@ -75,7 +75,7 @@ module.exports = function(req, res){
               && als.validate(a.value)){
                 // requested operation has validated, add it to the queue
                 queue.push({
-                  pin: als.pin,
+                  gpio: new Gpio(als.pin),
                   operation: a.operation,
                   value: a.value
                 });

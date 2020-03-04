@@ -13,7 +13,7 @@
 	[
 		{
 			alias: <alias>,
-			operation: <read, write, etc.>,
+			operation: <read, digitalWrite, etc.>,
 			[value: <value>],
 		},
 		...
@@ -76,7 +76,7 @@ describe('Test that api fails when expected (pass 1).', () => {
     const req = {
       body: [
         {
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 0
         }
       ]
@@ -98,11 +98,11 @@ describe('Test that api fails when expected (pass 1).', () => {
       body: [
         {
           alias: 'red_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 0
         },
         {
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 0
         }
       ]
@@ -124,16 +124,16 @@ describe('Test that api fails when expected (pass 1).', () => {
       body: [
         {
           alias: 'green_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 0
         },
         {
           alias: 'red_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 0
         },
         {
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 0
         }
       ]
@@ -154,17 +154,17 @@ describe('Test that api fails when expected (pass 1).', () => {
     const req = {
       body: [
         {
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 0
         },
         {
           alias: 'green_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 0
         },
         {
           alias: 'red_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 0
         }
       ]
@@ -187,7 +187,7 @@ describe('Test that api fails when expected (pass 1).', () => {
       body: [
         {
           alias: 'sadfsadf',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 0
         }
       ]
@@ -209,12 +209,12 @@ describe('Test that api fails when expected (pass 1).', () => {
       body: [
         {
           alias: 'red_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 0
         },
         {
           alias: 'sadfsadf',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 0
         }
       ]
@@ -236,17 +236,17 @@ describe('Test that api fails when expected (pass 1).', () => {
       body: [
         {
           alias: 'green_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 0
         },
         {
           alias: 'red_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 0
         },
         {
           alias: 'sadfsadf',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 0
         }
       ]
@@ -268,17 +268,17 @@ describe('Test that api fails when expected (pass 1).', () => {
       body: [
         {
           alias: 'sadfsadf',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 0
         },
         {
           alias: 'green_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 0
         },
         {
           alias: 'red_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 0
         }
       ]
@@ -322,7 +322,7 @@ describe('Test that api fails when expected (pass 1).', () => {
       body: [
         {
           alias: 'green_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         },
         {
@@ -348,12 +348,12 @@ describe('Test that api fails when expected (pass 1).', () => {
       body: [
         {
           alias: 'blue_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         },
         {
           alias: 'green_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         },
         {
@@ -383,12 +383,12 @@ describe('Test that api fails when expected (pass 1).', () => {
         },
         {
           alias: 'blue_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         },
         {
           alias: 'green_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         }
       ]
@@ -433,7 +433,7 @@ describe('Test that api fails when expected (pass 1).', () => {
       body: [
         {
           alias: 'blue_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         },
         {
@@ -460,12 +460,12 @@ describe('Test that api fails when expected (pass 1).', () => {
       body: [
         {
           alias: 'blue_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         },
         {
           alias: 'blue_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         },
         {
@@ -497,12 +497,12 @@ describe('Test that api fails when expected (pass 1).', () => {
         },
         {
           alias: 'blue_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         },
         {
           alias: 'blue_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         }
       ]
@@ -547,7 +547,7 @@ describe('Test that api fails when expected (pass 1).', () => {
       body: [
         {
           alias: 'blue_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         },
         {
@@ -574,12 +574,12 @@ describe('Test that api fails when expected (pass 1).', () => {
       body: [
         {
           alias: 'blue_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         },
         {
           alias: 'blue_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         },
         {
@@ -611,12 +611,12 @@ describe('Test that api fails when expected (pass 1).', () => {
         },
         {
           alias: 'blue_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         },
         {
           alias: 'blue_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         }
       ]
@@ -644,14 +644,14 @@ describe('Test that api fails when expected (pass 1).', () => {
 
 
 */
-describe('Test that api fails on write operation when value is missing (pass 2.1).', () => {
-  test('Test write failure when value is missing (only 1).', () => {
+describe('Test that api fails on digitalWrite operation when value is missing (pass 2.1).', () => {
+  test('Test digitalWrite failure when value is missing (only 1).', () => {
     // api function input
     const req = {
       body: [
         {
           alias: 'blue_pin',
-          operation: 'write'
+          operation: 'digitalWrite'
         }
       ]
     };
@@ -666,18 +666,18 @@ describe('Test that api fails on write operation when value is missing (pass 2.1
       message: 'Failed to validate alias\' value.'
     }));
   });
-test('Test write failure when value is missing (1 good before).', () => {
+test('Test digitalWrite failure when value is missing (1 good before).', () => {
     // api function input
     const req = {
       body: [
         {
           alias: 'red_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 100
         },
         {
           alias: 'blue_pin',
-          operation: 'write'
+          operation: 'digitalWrite'
         }
       ]
     };
@@ -692,23 +692,23 @@ test('Test write failure when value is missing (1 good before).', () => {
       message: 'Failed to validate alias\' value.'
     }));
   });
-  test('Test write failure when value is missing (2 good before).', () => {
+  test('Test digitalWrite failure when value is missing (2 good before).', () => {
     // api function input
     const req = {
       body: [
         {
           alias: 'red_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 100
         },
         {
           alias: 'green_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 100
         },
         {
           alias: 'blue_pin',
-          operation: 'write'
+          operation: 'digitalWrite'
         }
       ]
     };
@@ -723,22 +723,22 @@ test('Test write failure when value is missing (1 good before).', () => {
       message: 'Failed to validate alias\' value.'
     }));
   });
-  test('Test write failure when value is missing (1 bad before).', () => {
+  test('Test digitalWrite failure when value is missing (1 bad before).', () => {
     // api function input
     const req = {
       body: [
         {
           alias: 'blue_pin',
-          operation: 'write'
+          operation: 'digitalWrite'
         },
         {
           alias: 'red_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 100
         },
         {
           alias: 'green_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 100
         }
       ]
@@ -756,14 +756,14 @@ test('Test write failure when value is missing (1 good before).', () => {
   });
 });
 
-describe('Test that api fails on write operation when validate function is undefined (pass 2.2).', () => {
-  test('Test write failure when validate is missing from alias (1 bad alias).', () => {
+describe('Test that api fails on digitalWrite operation when validate function is undefined (pass 2.2).', () => {
+  test('Test digitalWrite failure when validate is missing from alias (1 bad alias).', () => {
     // api function input
     const req = {
       body: [
         {
-          alias: 'test_pin_write_novaidate',
-          operation: 'write',
+          alias: 'test_pin_digitalWrite_novaidate',
+          operation: 'digitalWrite',
           value: 100
         }
       ]
@@ -779,18 +779,18 @@ describe('Test that api fails on write operation when validate function is undef
       message: 'Failed to validate alias\' value.'
     }));
   });
-  test('Test write failure when validate is missing from alias (1 good before).', () => {
+  test('Test digitalWrite failure when validate is missing from alias (1 good before).', () => {
     // api function input
     const req = {
       body: [
         {
           alias: 'green_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         },
         {
-          alias: 'test_pin_write_novaidate',
-          operation: 'write',
+          alias: 'test_pin_digitalWrite_novaidate',
+          operation: 'digitalWrite',
           value: 100
         }
       ]
@@ -806,23 +806,23 @@ describe('Test that api fails on write operation when validate function is undef
       message: 'Failed to validate alias\' value.'
     }));
   });
-  test('Test write failure when validate is missing from alias (2 good before).', () => {
+  test('Test digitalWrite failure when validate is missing from alias (2 good before).', () => {
     // api function input
     const req = {
       body: [
         {
           alias: 'green_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         },
         {
           alias: 'blue_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         },
         {
-          alias: 'test_pin_write_novaidate',
-          operation: 'write',
+          alias: 'test_pin_digitalWrite_novaidate',
+          operation: 'digitalWrite',
           value: 100
         }
       ]
@@ -838,23 +838,23 @@ describe('Test that api fails on write operation when validate function is undef
       message: 'Failed to validate alias\' value.'
     }));
   });
-  test('Test write failure when validate is missing from alias (1 bad before).', () => {
+  test('Test digitalWrite failure when validate is missing from alias (1 bad before).', () => {
     // api function input
     const req = {
       body: [
         {
-          alias: 'test_pin_write_novaidate',
-          operation: 'write',
+          alias: 'test_pin_digitalWrite_novaidate',
+          operation: 'digitalWrite',
           value: 100
         },
         {
           alias: 'green_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         },
         {
           alias: 'blue_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         }
       ]
@@ -872,14 +872,14 @@ describe('Test that api fails on write operation when validate function is undef
   });
 });
 
-describe('Test that api fails on write operation when validate function is not a function (pass 2.3).', () => {
-  test('Test write failure when validate is not a function (1 bad alias).', () => {
+describe('Test that api fails on digitalWrite operation when validate function is not a function (pass 2.3).', () => {
+  test('Test digitalWrite failure when validate is not a function (1 bad alias).', () => {
     // api function input
     const req = {
       body: [
         {
-          alias: 'test_pin_write_badvalidate',
-          operation: 'write',
+          alias: 'test_pin_digitalWrite_badvalidate',
+          operation: 'digitalWrite',
           value: 100
         }
       ]
@@ -895,18 +895,18 @@ describe('Test that api fails on write operation when validate function is not a
       message: 'Failed to validate alias\' value.'
     }));
   });
-  test('Test write failure when validate is not a function (1 good before).', () => {
+  test('Test digitalWrite failure when validate is not a function (1 good before).', () => {
     // api function input
     const req = {
       body: [
         {
           alias: 'green_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         },
         {
-          alias: 'test_pin_write_badvalidate',
-          operation: 'write',
+          alias: 'test_pin_digitalWrite_badvalidate',
+          operation: 'digitalWrite',
           value: 100
         }
       ]
@@ -922,23 +922,23 @@ describe('Test that api fails on write operation when validate function is not a
       message: 'Failed to validate alias\' value.'
     }));
   });
-  test('Test write failure when validate is not a function (2 good before).', () => {
+  test('Test digitalWrite failure when validate is not a function (2 good before).', () => {
     // api function input
     const req = {
       body: [
         {
           alias: 'green_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         },
         {
           alias: 'blue_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         },
         {
-          alias: 'test_pin_write_badvalidate',
-          operation: 'write',
+          alias: 'test_pin_digitalWrite_badvalidate',
+          operation: 'digitalWrite',
           value: 100
         }
       ]
@@ -954,23 +954,23 @@ describe('Test that api fails on write operation when validate function is not a
       message: 'Failed to validate alias\' value.'
     }));
   });
-  test('Test write failure when validate is not a function (1 bad before).', () => {
+  test('Test digitalWrite failure when validate is not a function (1 bad before).', () => {
     // api function input
     const req = {
       body: [
         {
-          alias: 'test_pin_write_badvalidate',
-          operation: 'write',
+          alias: 'test_pin_digitalWrite_badvalidate',
+          operation: 'digitalWrite',
           value: 100
         },
         {
           alias: 'green_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         },
         {
           alias: 'blue_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         }
       ]
@@ -988,14 +988,14 @@ describe('Test that api fails on write operation when validate function is not a
   });
 });
 
-describe('Test that api fails on write operation when validate function returns false (pass 2.4).', () => {
-  test('Test write failure when validate fails (1 bad alias).', () => {
+describe('Test that api fails on digitalWrite operation when validate function returns false (pass 2.4).', () => {
+  test('Test digitalWrite failure when validate fails (1 bad alias).', () => {
     // api function input
     const req = {
       body: [
         {
-          alias: 'test_pin_write_validatefails',
-          operation: 'write',
+          alias: 'test_pin_digitalWrite_validatefails',
+          operation: 'digitalWrite',
           value: 100
         }
       ]
@@ -1011,18 +1011,18 @@ describe('Test that api fails on write operation when validate function returns 
       message: 'Failed to validate alias\' value.'
     }));
   });
-  test('Test write failure when validate fails (1 good before).', () => {
+  test('Test digitalWrite failure when validate fails (1 good before).', () => {
     // api function input
     const req = {
       body: [
         {
           alias: 'green_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         },
         {
-          alias: 'test_pin_write_validatefails',
-          operation: 'write',
+          alias: 'test_pin_digitalWrite_validatefails',
+          operation: 'digitalWrite',
           value: 100
         }
       ]
@@ -1038,23 +1038,23 @@ describe('Test that api fails on write operation when validate function returns 
       message: 'Failed to validate alias\' value.'
     }));
   });
-  test('Test write failure when validate fails (2 good before).', () => {
+  test('Test digitalWrite failure when validate fails (2 good before).', () => {
     // api function input
     const req = {
       body: [
         {
           alias: 'green_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         },
         {
           alias: 'blue_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         },
         {
-          alias: 'test_pin_write_validatefails',
-          operation: 'write',
+          alias: 'test_pin_digitalWrite_validatefails',
+          operation: 'digitalWrite',
           value: 100
         }
       ]
@@ -1070,23 +1070,23 @@ describe('Test that api fails on write operation when validate function returns 
       message: 'Failed to validate alias\' value.'
     }));
   });
-  test('Test write failure when validate fails (1 bad before).', () => {
+  test('Test digitalWrite failure when validate fails (1 bad before).', () => {
     // api function input
     const req = {
       body: [
         {
-          alias: 'test_pin_write_validatefails',
-          operation: 'write',
+          alias: 'test_pin_digitalWrite_validatefails',
+          operation: 'digitalWrite',
           value: 100
         },
         {
           alias: 'green_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         },
         {
           alias: 'blue_pin',
-          operation: 'write',
+          operation: 'digitalWrite',
           value: 255
         }
       ]
