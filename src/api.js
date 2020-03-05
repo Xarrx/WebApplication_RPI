@@ -14,7 +14,7 @@
 require('dotenv').config();
 const axios = require('axios');
 const alias = require('./alias.js');
-//const gpio = require('pigpio');
+//const Gpio = require('pigpio');
 
 module.exports = function(req, res){
   /*
@@ -75,7 +75,7 @@ module.exports = function(req, res){
               && als.validate(a.value)){
                 // requested operation has validated, add it to the queue
                 queue.push({
-                  gpio: new Gpio(als.pin),
+                  pin: als.pin,
                   operation: a.operation,
                   value: a.value
                 });
