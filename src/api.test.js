@@ -1113,9 +1113,11 @@ describe('Test that calls gpio functions when validation is successful (pass 2.5
   test('Test that on successful validation of a digitalWrite operation request, that an instance of the gpio class is created and the digitalWrite function is called on it. ', () => {
     const req = {
       body: [
-        alias: 'test_pin_digitalWrite_validateSuccess',
-        operation: 'digitalWrite',
-        value: 1
+        {
+          alias: 'test_pin_digitalWrite_validateSuccess',
+          operation: 'digitalWrite',
+          value: 1
+        }
       ]
     };
 
