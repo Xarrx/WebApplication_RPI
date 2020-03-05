@@ -42,16 +42,16 @@ module.exports = {
       return true;
     }
   },
-  test_pin_write_novaidate: {
+  test_pin_digitalWrite_novaidate: {
     pin: 25,
     allowed_operations: ['digitalWrite'],
   },
-  test_pin_write_badvalidate: {
+  test_pin_digitalWrite_badvalidate: {
     pin: 25,
     allowed_operations: ['digitalWrite'],
     validate: 'not a function'
   },
-  test_pin_write_validatefails: {
+  test_pin_digitalWrite_validatefails: {
     pin: 25,
     allowed_operations: ['digitalWrite'],
     validate: _validateAlwaysFail
