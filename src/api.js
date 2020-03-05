@@ -67,9 +67,9 @@ module.exports = function(req, res){
           if(a.hasOwnProperty('operation') 
           && als.hasOwnProperty('allowed_operations')
           && als.allowed_operations.includes(a.operation)){
-            // check if operation is write
-            if(a.operation === 'write'){
-              // operation is write, validate the value
+            // check if operation is digitalWrite
+            if(a.operation === 'digitalWrite'){
+              // operation is digitalWrite, validate the value
               if(a.hasOwnProperty('value') && als.hasOwnProperty('validate')
               && typeof als.validate === 'function'
               && als.validate(a.value)){
@@ -86,7 +86,7 @@ module.exports = function(req, res){
                 break;
               }
             }else{
-              // operation is something other than write so no value to validate
+              // operation is something other than digitalWrite so no value to validate
               queue.push({
                 pin: als.pin,
                 operation: a.operation,
@@ -125,8 +125,8 @@ module.exports = function(req, res){
     */
     while(queue.length){
       let a = queue.pop();
-      if(a.operation === 'write'){
-        // write value to pin
+      if(a.operation === 'digitalWrite'){
+        // digitalWrite value to pin
         console.log('MESSAGE: [PH] Value written to pin!');
       }else if(a.operation === 'read'){
         // read value from pin and modify resp
