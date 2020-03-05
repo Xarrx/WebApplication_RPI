@@ -55,5 +55,10 @@ module.exports = {
     pin: 25,
     allowed_operations: ['digitalWrite'],
     validate: _validateAlwaysFail
+  },
+  test_pin_digitalWrite_validateSuccess: {
+    pin: 25,
+    allowed_operations: ['digitalWrite'],
+    validate: _validateAlwaysPass
   }
 };
