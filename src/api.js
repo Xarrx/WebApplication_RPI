@@ -68,7 +68,8 @@ module.exports = function(req, res){
           && als.hasOwnProperty('allowed_operations')
           && als.allowed_operations.includes(a.operation)){
             // check if operation is digitalWrite
-            if(a.operation === 'digitalWrite'){
+            if(a.operation === 'digitalWrite' ||
+            a.operation === 'pwmWrite'){
               // operation is digitalWrite, validate the value
               if(a.hasOwnProperty('value') && als.hasOwnProperty('validate')
               && typeof als.validate === 'function'
@@ -127,12 +128,22 @@ module.exports = function(req, res){
       let a = queue.pop();
       if(a.operation === 'digitalWrite'){
         // digitalWrite value to pin
-        console.log('MESSAGE: [PH] Value written to pin!');
+        let message = 'MESSAGE: [PH] Value written to pin!';
+        console.log(message);
+        resp = {message: message};
+      }else if(a.operation === 'pwmWrite'){
+        let message = 'MESSAGE: [PH] Value written to pin!'
+        console.log(message);
+        resp = {message: message};
       }else if(a.operation === 'read'){
         // read value from pin and modify resp
-        console.log('MESSAGE: [PH] Value read from pin!');
+        let message = 'MESSAGE: [PH] Value read from pin!';
+        console.log(message);
+        resp = {message: message};
       }else{
-        console.log('MESSAGE: [PH] This message should never print...');
+        let message = 'MESSAGE: [PH] This message should never print...';
+        console.log(message);
+        resp = {message: message};
       }
     }
   }
