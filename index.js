@@ -15,17 +15,17 @@ app.get('/', (req, res) => {
     data: [
       {
         alias: 'red_pin',
-        operation: 'write',
+        operation: 'digitalWrite',
         value: 0
       },
       {
         alias: 'green_pin',
-        operation: 'write',
+        operation: 'digitalWrite',
         value: 255
       },
       {
         alias: 'blue_pin',
-        operation: 'write',
+        operation: 'digitalWrite',
         value: 0
       }
     ]

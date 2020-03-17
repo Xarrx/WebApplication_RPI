@@ -14,7 +14,7 @@
 require('dotenv').config();
 const axios = require('axios');
 const alias = require('./alias.js');
-const Gpio = require('pigpio');
+//const Gpio = require('pigpio');
 
 module.exports = function(req, res){
   /*
