@@ -1680,7 +1680,7 @@ describe('Test that api fails when expected (pass 3).', () => {
 
 
 */
-describe('Test that api fails on digitalWrite operation when value is missing (pass 3.1).', () => {
+describe('Test that api fails on pwmWrite operation when value is missing (pass 3.1).', () => {
   test('Test pwmWrite failure when value is missing (only 1).', () => {
     // api function input
     const req = {
@@ -1906,6 +1906,7 @@ describe('Test that api fails on pwmWrite operation when validate function is un
       message: 'Failed to validate alias\' value.'
     }));
   });
+
 });
 
 describe('Test that api fails on pwmWrite operation when validate function is not a function (pass 3.3).', () => {
