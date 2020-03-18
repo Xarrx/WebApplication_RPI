@@ -1,7 +1,6 @@
-var express = require('express');
-var api = require('./src/js/api');
-//var $ = require('jQuery');
-var axios = require('axios');
+const express = require('express');
+const axios = require('axios');
+const api = require('./src/api');
 
 var app = express();
 
@@ -13,22 +12,33 @@ app.get('/', (req, res) => {
   axios({
     method: 'get',
     url: 'https://webapplicationrpi--dkendz.repl.co/api',
-    data: {
-      action: 'getColor'
-    }
+    data: [
+      {
+        alias: 'red_pin',
+        operation: 'pwmWrite',
+        value: 0
+      },
+      {
+        alias: 'green_pin',
+        operation: 'pwmWrite',
+        value: 255
+      },
+      {
+        alias: 'blue_pin',
+        operation: 'pwmWrite',
+        value: 0
+      }
+    ]
   }).then((result) => {
-    console.log(result.data);
+    //console.log(result.data);
     res.status(200).json(result.data);
   }).catch((e) => {
-    console.log(e.response.data.message);
+    console.log('Error: '+e.response.data.message);
   });
 
 });
 
-app.get('/api', (req, res) => {
-  //console.log(req);
-  api.get_handler(req, res);
-});
+app.get('/api', api);
 
 app.listen(3000, () => {
   console.log('server started');
